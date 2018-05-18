@@ -1,0 +1,14 @@
+version: '2'
+services:
+  superset:
+    image: "amancevice/superset"
+    container_name: "test_superset"
+    restart: always
+    environment:
+      MAPBOX_API_KEY: "pk.donotcopythis.replaceyourownapikey"
+      SUPERSET_HOME: "/home/superset"
+    ports:
+          - "9088:8088"
+    volumes:
+          - "$PWD/conf:/home/superset"
+          - "$PWD/db:/var/lib/superset"
